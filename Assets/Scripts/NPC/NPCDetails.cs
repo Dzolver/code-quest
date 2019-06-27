@@ -6,5 +6,6 @@ using UnityEngine;
 public class NPCDetails
 {
     public Sprite image;
+    public string npcName;
     public string npcDescription;
 }

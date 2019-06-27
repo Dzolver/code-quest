@@ -14,6 +14,7 @@ public class DialogueManager : MonoBehaviour
     public Canvas canvas;
     public Text dialogueBoxText;
     public Image npcImage;
+    public Text npcName;
     public Text npcDescriptionText;
     public static DialogueManager Instance {
         get; private set; }
@@ -38,8 +39,8 @@ public class DialogueManager : MonoBehaviour
         sentences.Clear();
 
         npcImage.sprite = npcDetails.image;
-        npcDescriptionText.text = npcDetails.npcDescription;
-
+        //npcDescriptionText.text = npcDetails.npcDescription;
+        npcName.text = npcDetails.npcName;
 
         //get all the sentences from the dialogue
         foreach (string sentence in dialogue.sentences)
