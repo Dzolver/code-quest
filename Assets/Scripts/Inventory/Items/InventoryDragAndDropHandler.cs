@@ -6,9 +6,11 @@ using UnityEngine.UI;
 
 public class InventoryDragAndDropHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+
     public static GameObject itemBeingDragged;
     Vector3 startPosition;
     Transform startParent;
+
 
     public void OnBeginDrag(PointerEventData eventData)
     {

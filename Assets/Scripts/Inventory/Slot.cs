@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Slot : MonoBehaviour, IDropHandler
+public class Slot : MonoBehaviour, IDropHandler, IPointerClickHandler
 {
+    public ShowItemDetails itemDetails;
     public int itemCount;
 
     public Item item;
@@ -32,6 +33,14 @@ public class Slot : MonoBehaviour, IDropHandler
             InventoryDragAndDropHandler.itemBeingDragged.GetComponentInParent<Slot>().itemCount = itemCount;
             itemCount = slotOneItemCount;
         }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (item != null)
+            itemDetails.ShowDetails(item);
+        else
+            Debug.Log("Selected Empty Slot");
     }
 
 }
