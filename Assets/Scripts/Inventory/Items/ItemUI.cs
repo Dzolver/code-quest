@@ -11,6 +11,9 @@ public class ItemUI : MonoBehaviour
     {
         //item UI could be attached to the slot? then what will 
         image.sprite = item.itemImage;
+        image.SetNativeSize();
+        GetComponent<RectTransform>().localScale = new Vector2(1, 1);
+
         if (item.isStackable)
         {
             itemCount.text = ""+count;
