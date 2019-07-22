@@ -38,6 +38,10 @@ public class Inventory : MonoBehaviour
 
         slots = slotHolder.GetComponentsInChildren<Slot>();
         freeSlots = new List<Slot>(slots);
+
+        // Keep inventory minimised on Start
+        inventoryEnabled = false;
+        inventory.SetActive(false);
     }
     // Update is called once per frame
     void Update()

@@ -16,8 +16,10 @@ public class DialogueManager : MonoBehaviour
     public Image npcImage;
     public Text npcName;
     public Text npcDescriptionText;
-    public static DialogueManager Instance {
-        get; private set; }
+    public static DialogueManager Instance
+    {
+        get; private set;
+    }
     private void Start()
     {
         sentences = new Queue<string>();
@@ -29,7 +31,9 @@ public class DialogueManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            // Commented this as it is no longer necessary - Dialogue object
+            // is a child of player object, which is already set to DontDestroyOnLoad
+            //DontDestroyOnLoad(gameObject);
         }
     }
     public void StartDialogue(Dialogue dialogue, NPCDetails npcDetails)
