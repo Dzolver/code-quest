@@ -659,7 +659,7 @@ Transform:
   m_GameObject: {fileID: 911770630}
   m_LocalRotation: {x: -0.7071068, y: -0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0.3756, y: -0.335, z: -0.502}
-  m_LocalScale: {x: 0.009800363, y: 0.11721244, z: 0.03816102}
+  m_LocalScale: {x: 0.009800363, y: 0.11721244, z: 0.045770325}
   m_Children: []
   m_Father: {fileID: 403327943}
   m_RootOrder: 0
@@ -677,7 +677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exitScene: SampleIndoorScene
-  exitSpecific: {x: -12.62404, y: 1.01, z: 8.894352}
+  exitSpecific: {x: -12.62404, y: 1.5, z: 9.1}
   clearFlags: 2
 --- !u!65 &911770633
 BoxCollider:
@@ -1005,6 +1005,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 5974585895801012486, guid: c4dae20d430620345ae4e81227a9b8ea,
     type: 3}
+  defSprite: {fileID: 21300214, guid: cc9d2418861222141a01c4a119b7a44d, type: 3}
 --- !u!4 &1245588872
 Transform:
   m_ObjectHideFlags: 0

@@ -19,7 +19,9 @@ public class ChangeScene : MonoBehaviour
             other.GetComponent<movement>().enabled = false;
 
             // Load the exitScene and set the clearing method, as specified in the Editor
+            //other.GetComponent<CharacterController>().detectCollisions = false;
             SceneManager.LoadScene(exitScene);
+
             Camera.main.clearFlags = clearFlags;
 
             // Set the player object to a new position so that it doesn't hit the exit door collider of the exitScene and go back
