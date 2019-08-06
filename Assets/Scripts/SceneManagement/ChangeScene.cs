@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -43,6 +42,7 @@ public class ChangeScene : MonoBehaviour
 
         // Start screen fade to black
         fade.SetBool("FadeStart", true);
+        yield return new WaitForSeconds(1);
 
         // Start loading the scene asynchronously
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
