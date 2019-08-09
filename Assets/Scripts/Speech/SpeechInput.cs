@@ -14,13 +14,26 @@ public class SpeechInput : MonoBehaviour
     public VerticalLayoutGroup speechContainer;
     public ScrollRect scrollRect;
 
+    public Inventory inventory;
+    public movement movement;
+    public CharacterController characterController;
+
+    public bool finishedTyping = true;
 
     public void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            GetComponent<Canvas>().enabled = false;
+            GetComponent<Canvas>().enabled = true;
+        }
 
         //spawning bubble if none exists and text is input
+
         if (inputField.text.Length > 0)
         {
+            finishedTyping = false;
+
             if (!activeSpeechBubble)
                 SpawnSpeechBubble();
             activeSpeechBubble.text.text = inputField.text;
@@ -34,10 +47,34 @@ public class SpeechInput : MonoBehaviour
                 inputField.text = "";
                 inputField.Select();
                 inputField.ActivateInputField();
+                finishedTyping = true;
+            }
+        }
+        else
+        {
+            Debug.Log(inputField.text.Length);
+            if (!finishedTyping)
+            {
+                activeSpeechBubble.text.text = "";
+                activeSpeechBubble.animator.Play("Fade In Immediate");
+                activeSpeechBubble = null;
+                inputField.text = "";
+                finishedTyping = true;
             }
         }
 
-
+        if (inputField.isFocused)
+        {
+            movement.recieveInput = false;
+            inventory.recieveInput = false;
+            characterController.enabled = false;
+        }
+        else
+        {
+            movement.recieveInput = true;
+            inventory.recieveInput = true;
+            characterController.enabled = true;
+        }
     }
 
     public void SpawnSpeechBubble()

@@ -12,6 +12,8 @@ public class movement : MonoBehaviour
     private bool grounded = false;
     private float xInput,yInput;
     private float jumpSpeed = 5f;
+
+    public bool recieveInput = false;
     public Animator animator;
     void Start()
     {
@@ -21,16 +23,22 @@ public class movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.SetFloat("Horizontal",Input.GetAxis("Horizontal"));
-        CharacterController controller = GetComponent<CharacterController>();
+        if (recieveInput)
+        {
+            animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
+            CharacterController controller = GetComponent<CharacterController>();
 
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
+            float h = Input.GetAxisRaw("Horizontal");
+            float v = Input.GetAxisRaw("Vertical");
 
-        // Move
-        Vector3 tempVect = new Vector3(h, 0, v);
-        tempVect = tempVect.normalized * moveSpeed * Time.deltaTime;
-        controller.SimpleMove(tempVect);
+            // Move
+            Vector3 tempVect = new Vector3(h, 0, v);
+            tempVect = tempVect.normalized * moveSpeed * Time.deltaTime;
+            controller.SimpleMove(tempVect);
+        } else
+        {
+            animator.SetFloat("Horizontal", 0);
+        }
 
     }
     private void playerJump()

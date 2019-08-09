@@ -23,6 +23,8 @@ public class Inventory : MonoBehaviour
 
     //inventory is attached to the player, the player contains game objects attached to this object
 
+    public bool recieveInput;
+
     private void Awake()
     {
         if (Instance == null)
@@ -46,7 +48,7 @@ public class Inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (recieveInput && Input.GetKeyDown(KeyCode.I))
         {
             inventoryEnabled = !inventoryEnabled;
 
