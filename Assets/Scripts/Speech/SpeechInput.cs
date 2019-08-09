@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SpeechInput : MonoBehaviour
@@ -20,14 +21,18 @@ public class SpeechInput : MonoBehaviour
 
     public bool finishedTyping = true;
 
+    private void Awake()
+    {
+        SceneManager.sceneLoaded += RefreshCanvas;
+    }
+    public void RefreshCanvas(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        GetComponent<Canvas>().enabled = false;
+        GetComponent<Canvas>().enabled = true;
+    }
+
     public void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            GetComponent<Canvas>().enabled = false;
-            GetComponent<Canvas>().enabled = true;
-        }
-
         //spawning bubble if none exists and text is input
 
         if (inputField.text.Length > 0)
@@ -52,7 +57,6 @@ public class SpeechInput : MonoBehaviour
         }
         else
         {
-            Debug.Log(inputField.text.Length);
             if (!finishedTyping)
             {
                 activeSpeechBubble.text.text = "";
