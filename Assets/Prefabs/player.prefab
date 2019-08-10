@@ -1109,7 +1109,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 81
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -4025,11 +4025,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5974585895321363257}
     m_Modifications:
-    - target: {fileID: 415291840773534110, guid: 1386a592da9c2e34492f687c61ba4499,
-        type: 3}
-      propertyPath: m_Name
-      value: Item Details
-      objectReference: {fileID: 0}
     - target: {fileID: 415291840773534111, guid: 1386a592da9c2e34492f687c61ba4499,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4135,6 +4130,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 415291840773534110, guid: 1386a592da9c2e34492f687c61ba4499,
+        type: 3}
+      propertyPath: m_Name
+      value: Item Details
+      objectReference: {fileID: 0}
     - target: {fileID: 415291840773534080, guid: 1386a592da9c2e34492f687c61ba4499,
         type: 3}
       propertyPath: m_Color.a
@@ -4172,11 +4172,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5974585895801012480}
     m_Modifications:
-    - target: {fileID: 3060342933056429547, guid: d849c137c41c8d746bded391a9a100cc,
-        type: 3}
-      propertyPath: m_Name
-      value: HUD Canvas
-      objectReference: {fileID: 0}
     - target: {fileID: 3060342933056429543, guid: d849c137c41c8d746bded391a9a100cc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4282,6 +4277,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3060342933056429547, guid: d849c137c41c8d746bded391a9a100cc,
+        type: 3}
+      propertyPath: m_Name
+      value: HUD Canvas
+      objectReference: {fileID: 0}
     - target: {fileID: 3060342933056429544, guid: d849c137c41c8d746bded391a9a100cc,
         type: 3}
       propertyPath: m_Enabled
@@ -4337,11 +4337,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5974585895801012480}
     m_Modifications:
-    - target: {fileID: 2043306190304834061, guid: 5a643ede39976a54598494b0d2f84c9d,
-        type: 3}
-      propertyPath: m_Name
-      value: Floating Speech Canvas
-      objectReference: {fileID: 0}
     - target: {fileID: 2043306190304834057, guid: 5a643ede39976a54598494b0d2f84c9d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4462,10 +4457,15 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.001476696
       objectReference: {fileID: 0}
+    - target: {fileID: 2043306190304834061, guid: 5a643ede39976a54598494b0d2f84c9d,
+        type: 3}
+      propertyPath: m_Name
+      value: Floating Speech Canvas
+      objectReference: {fileID: 0}
     - target: {fileID: 7104598598706585404, guid: 5a643ede39976a54598494b0d2f84c9d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.00007861765
+      value: -0.0001478351
       objectReference: {fileID: 0}
     - target: {fileID: 7104598598706585404, guid: 5a643ede39976a54598494b0d2f84c9d,
         type: 3}
