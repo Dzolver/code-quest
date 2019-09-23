@@ -8,13 +8,13 @@ public class Inventory : MonoBehaviour
     public GameObject inventory;
 
     private int allSlots;
-    private Slot[] slots;
-    private List<Slot> freeSlots;
+    private UnequippedSlot[] slots;
+    private List<UnequippedSlot> freeSlots;
 
     public GameObject slotHolder;
     public GameObject equippedSlotHolder;
 
-    public ItemUI itemUIPrefab;
+    public Item itemPrefab;
     //contains reference to the equipped slots
         
     public static Inventory Instance { get; private set; }
@@ -36,10 +36,10 @@ public class Inventory : MonoBehaviour
     void Start()
     {
         allSlots = slotHolder.transform.childCount;
-        slots = new Slot[allSlots];
+        slots = new UnequippedSlot[allSlots];
 
-        slots = slotHolder.GetComponentsInChildren<Slot>();
-        freeSlots = new List<Slot>(slots);
+        slots = slotHolder.GetComponentsInChildren<UnequippedSlot>();
+        freeSlots = new List<UnequippedSlot>(slots);
 
         // Keep inventory minimised on Start
         inventoryEnabled = false;
@@ -69,43 +69,50 @@ public class Inventory : MonoBehaviour
 
         }
     }
-    
-    public void SwapItems(Item SlotOne, Slot SlotTwo)
-    {
-        RectTransform invPanel = transform as RectTransform;
 
-    }
 
-    public void AddItem(Item item)
+
+    public void AddItem(ItemDetails item)
     {
-        if (freeSlots.Count > 0)
+        //item type is unequipped item
+        bool foundFreeSlot = false;
+        if (item.isStackable)
         {
-            foreach (Slot slot in slots)
+            foreach (UnequippedSlot slot in slots)
+            {
+                if (slot.item != null)
+                {
+                    if (slot.item.itemDetails == item && item.isStackable)
+                    {
+                        slot.item.IncrementItemCount();
+                        freeSlots.Remove(slot);
+                        foundFreeSlot = true;
+                        return;
+                    }
+                }
+            }
+        }
+        if (freeSlots.Count > 0 && !foundFreeSlot)
+        {
+            foreach (UnequippedSlot slot in slots)
             {
                 if (slot.item == null)
                 {
-                    ItemUI newItemUI = Instantiate(itemUIPrefab);
-                    newItemUI.transform.position = slot.transform.position;
-                    newItemUI.transform.parent = slot.transform;
-                    newItemUI.SetItem(item);
-                    slot.itemUI = newItemUI;
-                    slot.item = item;
-                    slot.itemCount = 1;
-                    Debug.Log("Added Item");
-                    freeSlots.Remove(slot);
-                    return;
-                } //if item is already contained
-                else if (slot.item == item && item.isStackable)
-                {
-                    slot.itemCount++;
-                    slot.itemUI.SetItemCount(slot.itemCount);
-                    Debug.Log("Incremented Item" + slot.itemCount);
-                    freeSlots.Remove(slot);
-                    return;
-                    //item UI is attached to slot, how will the dragging work?
 
-                    //itemUI UI is spawned with a game object, slot maintains a reference to the item and the item UI.
-                    //when dragged and dropped how will the swapping occur? Actually swap
+                    Item newItem = Instantiate(itemPrefab);
+                    newItem.transform.position = slot.transform.position;
+                    newItem.transform.parent = slot.transform;
+                    slot.item = newItem;
+
+                    slot.item.SetItem(item);
+
+                    Debug.Log("Sticks? " + slot.item.itemDetails.itemType + newItem.itemDetails.itemType);
+                    Debug.Log("Sticks? " + slot.item.GetHashCode() + " = " + newItem.itemDetails.GetHashCode());
+
+
+                    newItem.currentSlot = slot;
+                    freeSlots.Remove(slot);
+                    return;
                 }
             }
         }
@@ -113,11 +120,3 @@ public class Inventory : MonoBehaviour
     }
 }
 
-public class EquippedSlot
-{
-    public ItemType equipItemType;
-
-    public Item item;
-
-    //what about items that 
-}

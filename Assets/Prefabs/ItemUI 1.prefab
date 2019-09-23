@@ -90,13 +90,13 @@ GameObject:
   - component: {fileID: 5953186611733716114}
   - component: {fileID: 5953186611733716118}
   - component: {fileID: 5953186611733716119}
-  - component: {fileID: 5953186611733716116}
   - component: {fileID: 5953186611733716117}
   - component: {fileID: 5642270879604122303}
   - component: {fileID: 6367093141815907894}
   - component: {fileID: 5500209455735393368}
+  - component: {fileID: 8278117741996342402}
   m_Layer: 5
-  m_Name: ItemUI
+  m_Name: ItemUI 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,28 +159,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &5953186611733716116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5953186611733716115}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 059589130af96af4c822ff1c8a7038dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  image: {fileID: 5953186611733716119}
-  itemCount: {fileID: 5953186611623603163}
-  itemDetails:
-    isStackable: 0
-    itemName: 
-    itemDescription: 
-    itemImage: {fileID: 0}
-    itemType: 0
-  item: {fileID: 0}
-  currentSlot: {fileID: 0}
 --- !u!114 &5953186611733716117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,3 +233,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8278117741996342402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5953186611733716115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 059589130af96af4c822ff1c8a7038dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 5953186611733716119}
+  itemCountText: {fileID: 5953186611623603163}
+  itemCount: 0
+  item: {fileID: 0}
+  currentSlot: {fileID: 0}

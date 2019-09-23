@@ -124,7 +124,6 @@ GameObject:
   - component: {fileID: 16839118}
   - component: {fileID: 16839117}
   - component: {fileID: 16839116}
-  - component: {fileID: 16839115}
   - component: {fileID: 16839120}
   m_Layer: 0
   m_Name: Cube
@@ -133,23 +132,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &16839115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 16839114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec8ecdb07e4a1aa45b8740e3b42f29b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isStackable: 1
-  itemName: Test Weapon
-  itemDescription: Test waeasdao wei asdjo ai
-  itemImage: {fileID: 21300000, guid: 5cd5fb8d95e9f1e4aa8558c95d314095, type: 3}
-  itemType: 0
 --- !u!65 &16839116
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -216,7 +198,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 16839114}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 4.2}
+  m_LocalPosition: {x: -69.1, y: 0, z: 4.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 995812363}
@@ -235,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 270b35c0fc08ef04199c2a5f0cf1934d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 0}
+  item: {fileID: 11400000, guid: 6923f9c73ae09ba4c8e57f858997dd08, type: 2}
   prompt: {fileID: 1763272902}
   inRange: 0
 --- !u!1 &170076733
@@ -1226,7 +1208,6 @@ GameObject:
   - component: {fileID: 1704536733}
   - component: {fileID: 1704536732}
   - component: {fileID: 1704536731}
-  - component: {fileID: 1704536730}
   - component: {fileID: 1704536729}
   m_Layer: 0
   m_Name: Cube (1)
@@ -1247,26 +1228,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 270b35c0fc08ef04199c2a5f0cf1934d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 0}
+  item: {fileID: 11400000, guid: 4318745a7a7840f4899c0c9c1b9e9e3d, type: 2}
   prompt: {fileID: 1862884818}
   inRange: 0
---- !u!114 &1704536730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1704536728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec8ecdb07e4a1aa45b8740e3b42f29b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isStackable: 0
-  itemName: Test Potion
-  itemDescription: Test waeasdao wei asdjo ai
-  itemImage: {fileID: 21300000, guid: 0c340f3a994da1b45be2b0d57fb52a4b, type: 3}
-  itemType: 2
 --- !u!65 &1704536731
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1333,7 +1297,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1704536728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.6, y: 0, z: 4.2}
+  m_LocalPosition: {x: -60.1, y: 0, z: 4.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1738314079}

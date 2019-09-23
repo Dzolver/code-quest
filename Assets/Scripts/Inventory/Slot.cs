@@ -1,53 +1,42 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class Slot : MonoBehaviour, IDropHandler, IPointerClickHandler
+public abstract class Slot : MonoBehaviour
 {
-    public ShowItemDetails itemDetails;
-    public int itemCount;
+    public ShowItemDetails itemDetailsDisplayRef;
 
     public Item item;
 
-    public ItemUI itemUI;
+    public Image backgroundImage;
 
-    public void OnDrop(PointerEventData eventData)
+    public abstract void SetItem(Item item);
+
+    public void UseItem()
     {
-        //if item contains other
-        if (item == null)
+        ((UsableItem)item.itemDetails).Use();
+
+        if (item.itemDetails.isStackable)
         {
-            InventoryDragAndDropHandler.itemBeingDragged.transform.SetParent(transform);
-            itemCount = InventoryDragAndDropHandler.itemBeingDragged.transform.parent.GetComponent<Slot>().itemCount;
+            if (item.itemCount < 2)
+            {
+                itemDetailsDisplayRef.HideItemDetails();
+                item.currentSlot = null;
+                Destroy(item.gameObject);
+                item = null;
+            }
+            else
+            {
+                item.itemCount--;
+                item.itemCountText.text = "" + item.itemCount;
+            }
         }
         else
         {
-            //Setting item02 slot as slot 01
-            transform.GetChild(0).SetParent(InventoryDragAndDropHandler.itemBeingDragged.transform.parent);
-            //Setting item01s parent as this slot 02
-            InventoryDragAndDropHandler.itemBeingDragged.transform.SetParent(transform);
-
-            //swapping the item counts
-            int slotOneItemCount = InventoryDragAndDropHandler.itemBeingDragged.GetComponentInParent<Slot>().itemCount;
-
-            InventoryDragAndDropHandler.itemBeingDragged.GetComponentInParent<Slot>().itemCount = itemCount;
-            itemCount = slotOneItemCount;
+            item.currentSlot = null;
+            item = null;
+            Destroy(item);
         }
     }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if (item != null)
-            itemDetails.ShowDetails(item);
-        else
-            Debug.Log("Selected Empty Slot");
-    }
-
-}
-
-public enum ItemType
-{
-    WEAPON,
-    ARMOR,
-    POTION
 }
