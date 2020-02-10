@@ -1,0 +1,34 @@
+front-end (vanguard, shock troop, templars)
+backend()
+
+vitality - health
+strength - muscles, equipment load
+intelligence - spell unlocking, enchanting, mana-> casting time
+charisma - aura power, persuasion
+willpower - magic debuff resistance 
+dexterity - evasion, initial attack, critical hit dmg
+endurance -stamina
+luck - rolls, loot drop chance, critical hit chance
+
+blacksmiths - craft, upgrade, repair, appraisal
+enchanter - enchant, appraisal
+general store - basic items buy and sell
+auction house - player based buy and sell market
+
+Fire
+Water
+Earth
+Air
+
+Lightning
+Ice
+Sound
+Psychic
+
+Life
+Death
+Time
+Gravity
+
+
+
