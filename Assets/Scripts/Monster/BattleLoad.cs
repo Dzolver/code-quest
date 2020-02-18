@@ -8,7 +8,7 @@ public class BattleLoad : MonoBehaviour
 {
     public GameObject prompt;
     public bool inRange;
-
+    private GameObject player;
     private void Start()
     {
         prompt.SetActive(false);
@@ -18,6 +18,7 @@ public class BattleLoad : MonoBehaviour
     {
         if (other.gameObject.layer == 10)
         {
+            player = other.gameObject;
             inRange = true;
             prompt.SetActive(true);
         }
@@ -36,6 +37,8 @@ public class BattleLoad : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && inRange)
         {
+            player.GetComponent<CharacterController>().enabled = false;
+            player.GetComponent<movement>().enabled = false;
             SceneManager.LoadScene("BattleScene");            
         }
     }
